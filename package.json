@@ -1,0 +1,90 @@
+{
+  "name": "deepseek-helper",
+  "displayName": "DeepSeek Helper",
+  "description": "Integracja API DeepSeek z VS Code",
+  "version": "0.0.3",
+  "author": "Twoje Imię <twoj@email.com>",
+  "publisher": "twoja-nazwa",
+  "license": "MIT",
+  "main": "./out/extension.js",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other",
+    "AI",
+    "Chat"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "deepseek.query",
+        "title": "Ask DeepSeek",
+        "category": "DeepSeek",
+        "icon": {
+          "light": "images/icon.jpeg",
+          "dark": "images/icon.jpeg"
+        }
+      },
+      {
+        "command": "deepseek.setApiKey",
+        "title": "Set the API key",
+        "category": "DeepSeek",
+        "icon": {
+          "light": "images/icon.jpeg",
+          "dark": "images/icon.jpeg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "deepseek.query",
+          "group": "DeepSeek@1",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "deepseek.setApiKey",
+          "group": "DeepSeek@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DeepSeek VS",
+      "properties": {
+        "deepseekHelper.defaultModel": {
+          "type": "string",
+          "enum": [
+            "deepseek-chat",
+            "deepseek-coder",
+            "deepseek-math"
+          ],
+          "default": "deepseek-chat",
+          "description": "Default model for generating responses"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext .ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^7.1.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}
