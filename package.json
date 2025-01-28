@@ -1,10 +1,14 @@
 {
   "name": "deepseek-helper",
-  "displayName": "DeepSeek Helper",
-  "description": "Integracja API DeepSeek z VS Code",
+  "displayName": "DeepSeekVS",
+  "description": "DeepSeek API integration with VS Code",
   "version": "0.0.3",
-  "author": "Twoje Imię <twoj@email.com>",
-  "publisher": "twoja-nazwa",
+  "author": "Karol Pruszynski <notlikejuice@github.com",
+  "publisher": "notlikejuice",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/your-username/your-repo.git"
+},
   "license": "MIT",
   "main": "./out/extension.js",
   "engines": {
